@@ -1,0 +1,13 @@
+export const LOGIN = 'LOGIN';
+export const LOGIN_PENDING = 'LOGIN_PENDING';
+export const LOGIN_FULFILLED = 'LOGIN_FULFILLED';
+export const LOGIN_REJECTED = 'LOGIN_REJECTED';
+
+export const REGISTER = 'REGISTER';
+export const REGISTER_PENDING = 'REGISTER_PENDING';
+export const REGISTER_FULFILLED = 'REGISTER_FULFILLED';
+export const REGISTER_REJECTED = 'REGISTER_REJECTED';
+
+export const LOGOUT = 'LOGOUT';
+
+export const CHANGE_GAME = 'CHANGE_GAME';

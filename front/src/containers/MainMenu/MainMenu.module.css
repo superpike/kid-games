@@ -1,0 +1,16 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    height: 5vh;
+    width: 100%;
+    background-color: #b9b9b9;
+    display: grid;
+    grid-template-columns: 150px 1fr 200px 400px;
+    gap: 20px;
+}
+
+.logo {
+    margin: auto;
+}

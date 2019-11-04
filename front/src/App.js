@@ -1,13 +1,24 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store/store';
+
+import MainMenu from './containers/MainMenu';
+import Game from './containers/Game';
+import gameRender from './renders/gameRender';
+
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        Здесь будет приложение
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <div className="App">
+          <MainMenu/>
+          <Game showGame={gameRender}/>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 

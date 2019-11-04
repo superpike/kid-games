@@ -1,0 +1,31 @@
+.InputElement {
+    outline: none;
+    display: block;
+    border: none;
+}
+
+.wrapper {
+    position: relative;
+    margin: 20px;
+}
+
+.error {
+    font-size: 12px;
+    color: red;
+    text-align: left;
+    margin: 5px;
+    position: absolute;
+    left: 0;
+    top: 90%;
+}
+
+.label,
+.labelError {
+    text-align: left;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.labelError {
+    color: red;
+}
