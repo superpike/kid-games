@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import classes from './Button.module.css';
 
@@ -19,4 +20,11 @@ const button = (props) => {
     );
 };
 
+button.propTypes = {
+    btnType: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    clicked: PropTypes.func.isRequired,
+    children: PropTypes.string.isRequired
+  } 
+  
 export default button;

@@ -1,6 +1,15 @@
-.wrapper {
+.wrapperDark,
+.wrapperLight {
     margin-top: 5vh;
+    min-height: 95vh;
+}
+
+.wrapperDark {
     background-color: #282c34;
     color: white;
-    min-height: 95vh;
+}
+
+.wrapperLight {
+    background-color: #a7b5d1;
+    color: black;
 }

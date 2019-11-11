@@ -35,7 +35,7 @@ const initialState = {
         name: 'Snakeee',
         id: 1,
     },
-    isFavorite: false,
+    isFavorite: true,
     favorites: [
         {
             name: 'Snakeee',

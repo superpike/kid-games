@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import classes from './InputWithList.module.css';
 
@@ -108,6 +109,17 @@ class InputWithList extends Component {
             </div>
         );
     }
+}
+
+InputWithList.propTypes = {
+    inputType: PropTypes.string,
+    changed: PropTypes.func.isRequired,
+    label: PropTypes.string,
+    showField: PropTypes.bool,
+    choose: PropTypes.func.isRequired,
+    activate: PropTypes.func,
+    data: PropTypes.array.isRequired,
+    error: PropTypes.string,
 }
 
 export default InputWithList;

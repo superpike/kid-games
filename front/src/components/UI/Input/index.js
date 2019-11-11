@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import classes from './Input.module.css';
 
@@ -38,6 +39,15 @@ const input = (props) => {
                 : null}
         </div>
     );
+}
+
+input.propTypes = {
+    inputType: PropTypes.string,
+    changed: PropTypes.func.isRequired,
+    label: PropTypes.string,
+    error: PropTypes.string,
+    noTextError: PropTypes.bool,
+    pressed: PropTypes.func,
 }
 
 export default input;

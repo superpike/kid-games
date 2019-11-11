@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// import PropTypes from 'prop-types';
 
 import Button from '../../components/UI/Button';
 import Input from '../../components/UI/Input';
@@ -252,5 +253,9 @@ const Snakeee = (props) => {
         </div>
     )
 }
+
+// Snakeee.propTypes = {
+
+// }
 
 export default Snakeee;

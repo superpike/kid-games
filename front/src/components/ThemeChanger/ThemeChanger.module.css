@@ -1,0 +1,42 @@
+.wrapper {
+    margin: 5px 10px;
+}
+
+.currentThemeLight,
+.currentThemeDark {
+    width: 50px;
+    height: 26px;
+    border-radius: 26px;
+    position: relative;
+}
+
+.currentThemeLight {
+    background-color: #ccc;
+    border: 1px solid #555;
+}
+
+.currentThemeDark {
+    background-color: #555;
+    border: 1px solid #ccc;
+}
+
+.switcherLight,
+.switcherDark {
+    position: absolute;
+    z-index: 5;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.switcherDark {
+    left: 3px;
+    background-color: #ccc;
+}
+
+.switcherLight {
+    right: 3px;
+    background-color: #555;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import classes from './Field.module.css';
 
@@ -33,6 +34,15 @@ const field = props => {
             }
         </div>
     )
+}
+
+field.propTypes = {
+    X: PropTypes.number.isRequired,
+    Y: PropTypes.number.isRequired,
+    food: PropTypes.object.isRequired,
+    barriers: PropTypes.array.isRequired,
+    snake: PropTypes.array.isRequired,
+    finalMessage: PropTypes.string,
 }
 
 export default field;
