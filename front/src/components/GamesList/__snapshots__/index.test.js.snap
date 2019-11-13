@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing gamesList Favorites should render favorite icon 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    <div
+      class="wrapper"
+    >
+      <label
+        class="label"
+      >
+        games for you
+      </label>
+      <div
+        class="inputWrapper"
+      >
+        <input
+          class="InputElement"
+          data="[object Object],[object Object]"
+          value="qwert"
+        />
+        <div
+          class="icon"
+        >
+          <i
+            class="fas fa-chevron-down"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="favorite"
+    >
+      <i
+        class="fas fa-star"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing gamesList Favorites should render non-favorite icon 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    <div
+      class="wrapper"
+    >
+      <label
+        class="label"
+      >
+        games for you
+      </label>
+      <div
+        class="inputWrapper"
+      >
+        <input
+          class="InputElement"
+          data="[object Object],[object Object]"
+          value="qwert"
+        />
+        <div
+          class="icon"
+        >
+          <i
+            class="fas fa-chevron-down"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="favorite"
+    >
+      <i
+        class="far fa-star"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing gamesList Is label should be label for list 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    <div
+      class="wrapper"
+    >
+      <label
+        class="label"
+      >
+        games for you
+      </label>
+      <div
+        class="inputWrapper"
+      >
+        <input
+          class="InputElement"
+          data="[object Object],[object Object]"
+          value="qwert"
+        />
+        <div
+          class="icon"
+        >
+          <i
+            class="fas fa-chevron-down"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="favorite"
+    >
+      <i
+        class="far fa-star"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing gamesList List of the games should be chosen an active game 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    <div
+      class="wrapper"
+    >
+      <label
+        class="label"
+      >
+        games for you
+      </label>
+      <div
+        class="inputWrapper"
+      >
+        <input
+          class="InputElement"
+          data="[object Object],[object Object]"
+          value="qwert2"
+        />
+        <div
+          class="icon"
+        >
+          <i
+            class="fas fa-chevron-down"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="favorite"
+    >
+      <i
+        class="far fa-star"
+      />
+    </div>
+  </div>
+</div>
+`;
