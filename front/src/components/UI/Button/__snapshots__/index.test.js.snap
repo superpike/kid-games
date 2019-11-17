@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing button should be all classes 1`] = `
+<div>
+  <button
+    class="Main Middle Button"
+  >
+    Button
+  </button>
+</div>
+`;
+
+exports[`Testing button should be only Main 1`] = `
+<div>
+  <button
+    class="Main Button"
+  >
+    Button
+  </button>
+</div>
+`;
+
+exports[`Testing button should be only Middle 1`] = `
+<div>
+  <button
+    class="Middle Button"
+  >
+    Button
+  </button>
+</div>
+`;
