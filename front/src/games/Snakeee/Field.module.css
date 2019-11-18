@@ -3,6 +3,16 @@
     position: relative;
 }
 
+.wrapperdark {
+    background-color: #303030;
+    position: relative;
+}
+
+.wrapperlight {
+    background-color: #ebebeb;
+    position: relative;
+}
+
 .row {
     display: flex;
 }
@@ -16,13 +26,39 @@
     border: 1px dotted #eee;
 }
 
+.celllight,
+.cellSnakelight,
+.cellFoodlight,
+.cellBarrierlight {
+    width: 15px;
+    height: 15px;
+    border: 1px dotted #696969;
+}
+
+.celldark,
+.cellSnakedark,
+.cellFooddark,
+.cellBarrierdark {
+    width: 15px;
+    height: 15px;
+    border: 1px dotted #eee;
+}
+
 .cellSnake{
     background-color: white;
 }
-.cellFood{
+.cellSnakelight{
+    background-color: #666666;
+}
+.cellSnakedark{
+    background-color: white;
+}
+.cellFoodlight,
+.cellFooddark {
     background-color: #3dca12;
 }
-.cellBarrier{
+.cellBarrierlight,
+.cellBarrierdark {
     background-color: #193cd8;
 }
 

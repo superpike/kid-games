@@ -1,14 +1,12 @@
-import React, { useContext } from 'react';
-// import PropTypes from 'prop-types';
-// import ThemeContext from '../../context/themeContext';
-import { useThemeValue } from '../../context/themeContext';
+import React from 'react';
+
+import { withTheme } from '../../HOC/withTheme';
 
 import classes from './Logo.module.css';
 
-const Logo = () => {
-    const [{ currentTheme }] = useThemeValue();
+const Logo = props => {
     return (
-        <div className={currentTheme === 'dark' ? classes.wrapperDark : classes.wrapperLight}>
+        <div className={props.theme === 'dark' ? classes.wrapperDark : classes.wrapperLight}>
             Kid games
         </div>
     )
@@ -17,4 +15,4 @@ const Logo = () => {
 // logo.propTypes = {
 // }
 
-export default Logo;
+export default withTheme(Logo);
