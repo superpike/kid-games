@@ -1,17 +1,17 @@
 import React from 'react';
-import { useThemeValue } from '../../context/themeContext';
+import { useTheme } from '../../context/themeContext';
 
 import classes from './ThemeChanger.module.css';
 
 const ThemeChanger = () => {
-    const [{ currentTheme }, dispatch] = useThemeValue();
+    const { theme, changeTheme} = useTheme();
     return (<div className={classes.wrapper}>
         <div
-            className={currentTheme === 'dark' ? classes.currentThemeDark : classes.currentThemeLight}
-            onClick={() => dispatch({ type: 'changeTheme' })}
+            className={theme === 'dark' ? classes.currentThemeDark : classes.currentThemeLight}
+            onClick={() => changeTheme(theme)}
         >
             <div
-                className={currentTheme === 'dark' ? classes.switcherDark : classes.switcherLight}
+                className={theme === 'dark' ? classes.switcherDark : classes.switcherLight}
             ></div>
         </div>
     </div>

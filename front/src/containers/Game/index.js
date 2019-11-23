@@ -6,9 +6,9 @@ import { useThemeValue } from '../../context/themeContext';
 import classes from './Game.module.css';
 
 const Game = props => {
-    const [{ currentTheme }] = useThemeValue();
+    const theme = useThemeValue();
     return (
-        <div className={currentTheme === 'dark' ? classes.wrapperDark : classes.wrapperLight}>
+        <div className={theme === 'dark' ? classes.wrapperDark : classes.wrapperLight}>
             {props.showGame(props.activeGame ? props.activeGame.name : '')}
         </div>
     )

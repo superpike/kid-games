@@ -1,11 +1,11 @@
-import React, { useReducer, useEffect } from 'react';
+import React from 'react';
 import { useThemeValue } from '../context/themeContext';
 
 export const withTheme = (WrappedComponent) => {
     return (props) => {
-        const [{ currentTheme }] = useThemeValue();
+        const theme = useThemeValue();
         return (
-            <WrappedComponent {...props} theme={currentTheme} />
+            <WrappedComponent {...props} theme={theme} />
         )
     }
 }
