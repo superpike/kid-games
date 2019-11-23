@@ -1,34 +1,55 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true
+  },
+  //"extends": "eslint:recommended",
+  "extends": [
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "airbnb"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "it": false
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    //"extends": "eslint:recommended",
-    "extends": "airbnb",
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly",
-        "it": false
-    },
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 2018,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
     ],
-    "rules": {
-        "react/jsx-filename-extension": [
-            1,
-            {
-                "extensions": [
-                    ".js",
-                    ".jsx"
-                ]
-            }
-        ]
-    }
+    "linebreak-style": ["error", "windows"],
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/state-in-constructor": "off",
+    "no-param-reassign": 0,
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "only-multiline",
+        "objects": "only-multiline",
+        "imports": "never",
+        "exports": "never",
+        "functions": "never"
+      }
+    ],
+    "operator-linebreak": 0,
+    "no-use-before-define": 0,
+    "arrow-parens": 0,
+    "arrow-body-style": 0,
+    "object-curly-newline": 0
+  }
 }

@@ -9,16 +9,11 @@ import { appReducer } from './reducers/appReducer';
 
 // Reducers
 const reducers = combineReducers({
-    app: appReducer,
+  app: appReducer,
 });
 
-const rootReducer = (state, action) => {
-    // if (action.type === 'LOGOUT') {
-    //   state = undefined;
-    // }
-    return reducers(state, action);
-  };
-  
+const rootReducer = (state, action) => reducers(state, action);
+
 const middleware = applyMiddleware(promise, logger, thunk);
 
 const store = createStore(rootReducer, middleware);

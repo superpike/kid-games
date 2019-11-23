@@ -3,32 +3,39 @@ import PropTypes from 'prop-types';
 
 import classes from './Button.module.css';
 
-const button = (props) => {
-    let assignedClasses = [];
-    if (props.btnType) {
-        assignedClasses = props.btnType.split(' ');
-    }
-    assignedClasses.push('Button');
+const Button = ({ btnType, disabled, clicked, children }) => {
+  let assignedClasses = [];
+  if (btnType) {
+    assignedClasses = btnType.split(' ');
+  }
+  assignedClasses.push('Button');
 
-    return (
-        <button
-            disabled={props.disabled}
-            className={assignedClasses.map(el => {
-                return classes[el]
-            }).join(' ')}
-            onClick={props.clicked}>{props.children}</button>
-    );
+  return (
+    <button
+      disabled={disabled}
+      className={assignedClasses
+        .map(el => {
+          return classes[el];
+        })
+        .join(' ')}
+      onClick={clicked}
+      type="button"
+    >
+      {children}
+    </button>
+  );
 };
 
-button.propTypes = {
-    btnType: PropTypes.oneOf([
-        'Main Middle',
-        'Middle',
-        'Main'
-    ]).isRequired,
-    disabled: PropTypes.bool,
-    clicked: PropTypes.func.isRequired,
-    children: PropTypes.string.isRequired
-  } 
-  
-export default button;
+Button.propTypes = {
+  btnType: PropTypes.oneOf(['Main Middle', 'Middle', 'Main'])
+    .isRequired,
+  disabled: PropTypes.bool,
+  clicked: PropTypes.func.isRequired,
+  children: PropTypes.string.isRequired,
+};
+
+Button.defaultProps = {
+  disabled: false,
+};
+
+export default Button;

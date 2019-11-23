@@ -7,42 +7,63 @@ import { changeGame } from '../../store/actions/appActions';
 
 import classes from './GamesList.module.css';
 
-export const gamesList = props => {
-    return (
-        <div className={classes.wrapper}>
-            <InputWithList
-                data={props.games}
-                label='games for you'
-                showField={false}
-                changed={() => {}}
-                value={props.activeGame ? props.activeGame.name : ''}
-                choose={(name) => { props.dispatch(changeGame(name)) }}
-            />
-            <div className={classes.favorite}>
-            {
-                props.isFavorite
-                ?
-                <i className="fas fa-star"></i>
-                :
-                <i className="far fa-star"></i>
-            }
-            </div>
-        </div>
-    )
-}
+export const GameList = ({
+  games,
+  activeGame,
+  isFavorite,
+  dispatch,
+}) => {
+  return (
+    <div className={classes.wrapper}>
+      <InputWithList
+        data={games}
+        label="games for you"
+        showField={false}
+        changed={() => {}}
+        value={activeGame ? activeGame.name : ''}
+        choose={name => {
+          dispatch(changeGame(name));
+        }}
+        name="gamesList"
+      />
+      <div className={classes.favorite}>
+        {isFavorite ? (
+          <i className="fas fa-star" />
+        ) : (
+          <i className="far fa-star" />
+        )}
+      </div>
+    </div>
+  );
+};
 
-gamesList.propsTypes = {
-    games: PropTypes.array.isRequired,
-    activeGame: PropTypes.object,
-    isFavorite: PropTypes.bool, 
-}
+GameList.propTypes = {
+  games: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      name: PropTypes.string,
+    })
+  ).isRequired,
+  activeGame: PropTypes.exact({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    name: PropTypes.string,
+  }),
+  isFavorite: PropTypes.bool,
+  dispatch: PropTypes.func,
+};
+
+GameList.defaultProps = {
+  activeGame: null,
+  isFavorite: false,
+  dispatch: () => {},
+};
 
 const mapStateToProps = store => {
-    return {
-        games: store.app.games,
-        activeGame: store.app.activeGame,
-        isFavorite: store.app.isFavorite,
-    }
-}
+  return {
+    games: store.app.games,
+    activeGame: store.app.activeGame,
+    isFavorite: store.app.isFavorite,
+  };
+};
 
-export default connect(mapStateToProps)(gamesList);
+export default connect(mapStateToProps)(GameList);

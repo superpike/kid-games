@@ -1,4 +1,5 @@
 import React from 'react';
+import { render } from '@testing-library/react';
 import Button from './index';
 // query utilities:
 // import {
@@ -11,28 +12,33 @@ import Button from './index';
 //     wait,
 // } from '@testing-library/dom'
 // adds special assertions like toHaveTextContent
-import '@testing-library/jest-dom/extend-expect'
-import { render } from '@testing-library/react'
+import '@testing-library/jest-dom/extend-expect';
 
-describe("Testing button", () => {
-    // describe("classes", () => {
-        test('should be only Main', () => {
-            const { container } = render(
-                <Button btnType='Main' clicked={() => {}}>Button</Button>
-            );
-            expect(container).toMatchSnapshot();
-        })
-        test('should be only Middle', () => {
-            const { container } = render(
-                <Button btnType='Middle' clicked={() => {}}>Button</Button>
-            );
-            expect(container).toMatchSnapshot();
-        })
-        test('should be all classes', () => {
-            const { container } = render(
-                <Button btnType='Main Middle' clicked={() => {}}>Button</Button>
-            );
-            expect(container).toMatchSnapshot();
-        })
-    // })
-})
+describe('Testing button', () => {
+  // describe("classes", () => {
+  test('should be only Main', () => {
+    const { container } = render(
+      <Button btnType="Main" clicked={() => {}}>
+        Button
+      </Button>
+    );
+    expect(container).toMatchSnapshot();
+  });
+  test('should be only Middle', () => {
+    const { container } = render(
+      <Button btnType="Middle" clicked={() => {}}>
+        Button
+      </Button>
+    );
+    expect(container).toMatchSnapshot();
+  });
+  test('should be all classes', () => {
+    const { container } = render(
+      <Button btnType="Main Middle" clicked={() => {}}>
+        Button
+      </Button>
+    );
+    expect(container).toMatchSnapshot();
+  });
+  // })
+});

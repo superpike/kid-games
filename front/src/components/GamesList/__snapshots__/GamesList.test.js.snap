@@ -10,6 +10,7 @@ exports[`Testing gamesList Favorites should render favorite icon 1`] = `
     >
       <label
         class="label"
+        for="gamesList"
       >
         games for you
       </label>
@@ -19,10 +20,15 @@ exports[`Testing gamesList Favorites should render favorite icon 1`] = `
         <input
           class="InputElement"
           data="[object Object],[object Object]"
+          error=""
+          name="gamesList"
+          selecttext="Select from the list:"
           value="qwert"
         />
         <div
           class="icon"
+          role="button"
+          tabindex="0"
         >
           <i
             class="fas fa-chevron-down"
@@ -51,6 +57,7 @@ exports[`Testing gamesList Favorites should render non-favorite icon 1`] = `
     >
       <label
         class="label"
+        for="gamesList"
       >
         games for you
       </label>
@@ -60,10 +67,15 @@ exports[`Testing gamesList Favorites should render non-favorite icon 1`] = `
         <input
           class="InputElement"
           data="[object Object],[object Object]"
+          error=""
+          name="gamesList"
+          selecttext="Select from the list:"
           value="qwert"
         />
         <div
           class="icon"
+          role="button"
+          tabindex="0"
         >
           <i
             class="fas fa-chevron-down"
@@ -92,6 +104,7 @@ exports[`Testing gamesList Is label should be label for list 1`] = `
     >
       <label
         class="label"
+        for="gamesList"
       >
         games for you
       </label>
@@ -101,10 +114,15 @@ exports[`Testing gamesList Is label should be label for list 1`] = `
         <input
           class="InputElement"
           data="[object Object],[object Object]"
+          error=""
+          name="gamesList"
+          selecttext="Select from the list:"
           value="qwert"
         />
         <div
           class="icon"
+          role="button"
+          tabindex="0"
         >
           <i
             class="fas fa-chevron-down"
@@ -133,6 +151,7 @@ exports[`Testing gamesList List of the games should be chosen an active game 1`]
     >
       <label
         class="label"
+        for="gamesList"
       >
         games for you
       </label>
@@ -142,10 +161,15 @@ exports[`Testing gamesList List of the games should be chosen an active game 1`]
         <input
           class="InputElement"
           data="[object Object],[object Object]"
+          error=""
+          name="gamesList"
+          selecttext="Select from the list:"
           value="qwert2"
         />
         <div
           class="icon"
+          role="button"
+          tabindex="0"
         >
           <i
             class="fas fa-chevron-down"

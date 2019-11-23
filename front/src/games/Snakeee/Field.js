@@ -5,46 +5,81 @@ import { withTheme } from '../../HOC/withTheme';
 
 import classes from './Field.module.css';
 
-const Field = props => {
-    const field = [];
-    let cells;
-    for (let i = 0; i < props.Y; i++) {
-        cells = []
-        for (let j = 0; j < props.X; j++) {
-            let className = 'cell'+props.theme;
-            if (props.food.x === j && props.food.y === i) {
-                className = 'cellFood'+props.theme;
-            } else if (props.barriers.filter(el => { return el.x === j && el.y === i }).length > 0) {
-                className = 'cellBarrier'+props.theme;
-            } else if (props.snake.filter(el => { return el.x === j && el.y === i }).length > 0) {
-                className = 'cellSnake'+props.theme;
-            }
-            cells.push(<div key={'cell_' + i + '_' + j} className={classes[className]}></div>)
-        }
-        field.push(<div key={'row' + i} className={classes.row}>{cells}</div>);
+const Field = ({
+  X,
+  Y,
+  food,
+  snake,
+  barriers,
+  theme,
+  finalMessage = '',
+}) => {
+  const field = [];
+  let cells;
+  for (let i = 0; i < Y; i += 1) {
+    cells = [];
+    for (let j = 0; j < X; j += 1) {
+      let className = `cell${theme}`;
+      if (food.x === j && food.y === i) {
+        className = `cellFood${theme}`;
+      } else if (
+        barriers.filter(el => {
+          return el.x === j && el.y === i;
+        }).length > 0
+      ) {
+        className = `cellBarrier${theme}`;
+      } else if (
+        snake.filter(el => {
+          return el.x === j && el.y === i;
+        }).length > 0
+      ) {
+        className = `cellSnake${theme}`;
+      }
+      cells.push(
+        <div key={`cell_${i}_${j}`} className={classes[className]} />
+      );
     }
-    return (
-        <div className={classes['wrapper'+props.theme]}>
-            {field}
-            {
-                props.finalMessage
-                    ?
-                    <div className={classes.finalMessage}>
-                        {props.finalMessage}
-                    </div>
-                    : null
-            }
-        </div>
-    )
-}
+    field.push(
+      <div key={`row${i}`} className={classes.row}>
+        {cells}
+      </div>
+    );
+  }
+  return (
+    <div className={classes[`wrapper${theme}`]}>
+      {field}
+      {finalMessage ? (
+        <div className={classes.finalMessage}>{finalMessage}</div>
+      ) : null}
+    </div>
+  );
+};
 
 Field.propTypes = {
-    X: PropTypes.number.isRequired,
-    Y: PropTypes.number.isRequired,
-    food: PropTypes.object.isRequired,
-    barriers: PropTypes.array.isRequired,
-    snake: PropTypes.array.isRequired,
-    finalMessage: PropTypes.string,
-}
+  X: PropTypes.number.isRequired,
+  Y: PropTypes.number.isRequired,
+  food: PropTypes.exact({
+    x: PropTypes.number,
+    y: PropTypes.number,
+  }).isRequired,
+  barriers: PropTypes.arrayOf(
+    PropTypes.exact({
+      x: PropTypes.number,
+      y: PropTypes.number,
+    })
+  ).isRequired,
+  snake: PropTypes.arrayOf(
+    PropTypes.exact({
+      x: PropTypes.number,
+      y: PropTypes.number,
+    })
+  ).isRequired,
+  finalMessage: PropTypes.string,
+  theme: PropTypes.oneOf(['dark', 'light']).isRequired,
+};
+
+Field.defaultProps = {
+  finalMessage: '',
+};
 
 export default withTheme(Field);
