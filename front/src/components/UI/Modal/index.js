@@ -3,36 +3,50 @@ import PropTypes from 'prop-types';
 
 import classes from './Modal.module.css';
 
-const modal = (props) => {
+const Modal = ({
+  classesNames,
+  noBackdrop,
+  closeBackdrop,
+  children,
+}) => {
   let assignedClasses = [];
-  if (props.classesNames) {
-    assignedClasses = props.classesNames.split(' ');
+  if (classesNames) {
+    assignedClasses = classesNames.split(' ');
   }
   assignedClasses.push('Modal');
 
   return (
     <>
-      {
-        props.noBackdrop
-          ?
-          null
-          :
-          <div className={classes.backdrop} onClick={props.closeBackdrop}></div>
-      }
+      {noBackdrop ? null : (
+        <div
+          className={classes.backdrop}
+          onClick={closeBackdrop}
+          onKeyPress={() => {}}
+          role="button"
+          tabIndex="0"
+          aria-label="backdrop"
+        />
+      )}
       <div
         className={assignedClasses.map(el => classes[el]).join(' ')}
       >
-        {props.children}
+        {children}
       </div>
     </>
   );
-}
+};
 
-modal.propTypes = {
+Modal.propTypes = {
   classesNames: PropTypes.string,
   noBackdrop: PropTypes.bool,
   closeBackdrop: PropTypes.func,
-  children: PropTypes.element
-} 
+  children: PropTypes.element.isRequired,
+};
 
-export default modal;
+Modal.defaultProps = {
+  classesNames: '',
+  noBackdrop: false,
+  closeBackdrop: () => {},
+};
+
+export default Modal;

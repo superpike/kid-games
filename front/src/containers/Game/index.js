@@ -5,23 +5,35 @@ import { useThemeValue } from '../../context/themeContext';
 
 import classes from './Game.module.css';
 
-const Game = props => {
-    const theme = useThemeValue();
-    return (
-        <div className={theme === 'dark' ? classes.wrapperDark : classes.wrapperLight}>
-            {props.showGame(props.activeGame ? props.activeGame.name : '')}
-        </div>
-    )
-}
+const Game = ({ activeGame, showGame }) => {
+  const theme = useThemeValue();
+  return (
+    <div
+      className={
+        theme === 'dark' ? classes.wrapperDark : classes.wrapperLight
+      }
+    >
+      {showGame(activeGame ? activeGame.name : '')}
+    </div>
+  );
+};
 
 Game.propTypes = {
-    activeGame: PropTypes.object,
-}
+  activeGame: PropTypes.exact({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    name: PropTypes.string,
+  }),
+  showGame: PropTypes.func.isRequired,
+};
+
+Game.defaultProps = {
+  activeGame: null,
+};
 
 const mapStateToProps = store => {
-    return {
-        activeGame: store.app.activeGame,
-    }
-}
+  return {
+    activeGame: store.app.activeGame,
+  };
+};
 
 export default connect(mapStateToProps)(Game);

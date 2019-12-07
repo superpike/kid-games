@@ -3,51 +3,77 @@ import PropTypes from 'prop-types';
 
 import classes from './Input.module.css';
 
-const input = (props) => {
-    let assignedClasses = [];
-    if (props.inputType) {
-        assignedClasses = props.inputType.split(' ').map(el => el + (props.error ? 'Error' : ''));
-    }
+const Input = ({
+  inputType,
+  changed,
+  label,
+  error,
+  noTextError,
+  pressed,
+  name,
+  value,
+  type,
+}) => {
+  let assignedClasses = [];
+  if (inputType) {
+    assignedClasses = inputType
+      .split(' ')
+      .map(el => el + (error ? 'Error' : ''));
+  }
 
-    assignedClasses.push('InputElement');
+  assignedClasses.push('InputElement');
 
-    const inputProps = { ...props };
-    delete inputProps.inputType;
-    delete inputProps.changed;
+  return (
+    <div className={classes[`wrapper${inputType}`]}>
+      {label ? (
+        <label
+          className={
+            error && !noTextError ? classes.labelError : classes.label
+          }
+          htmlFor={name}
+        >
+          {label}
+        </label>
+      ) : null}
+      <input
+        className={assignedClasses
+          .map(el => {
+            return classes[el];
+          })
+          .join(' ')}
+        onChange={changed}
+        onKeyPress={pressed}
+        name={name}
+        value={value}
+        type={type}
+      />
+      {error && !noTextError ? (
+        <div className={classes.error}>{error}</div>
+      ) : null}
+    </div>
+  );
+};
 
-    return (
-        <div className={classes['wrapper' + (props.inputType ? props.inputType : '')]}>
-            {props.label
-                ?
-                <label className={props.error && !props.noTextError ? classes.labelError : classes.label}>{props.label}</label>
-                : null}
-            <input
-                className={assignedClasses.map(el => {
-                    return classes[el]
-                }).join(' ')}
-                {
-                ...inputProps
-                }
-                onChange={props.changed}
-                onKeyPress={props.pressed}
-            />
-            {props.error && !props.noTextError
-                ?
-                <div className={classes.error}>
-                    {props.error}
-                </div>
-                : null}
-        </div>
-    );
-}
+Input.propTypes = {
+  inputType: PropTypes.string,
+  changed: PropTypes.func.isRequired,
+  label: PropTypes.string,
+  error: PropTypes.string,
+  noTextError: PropTypes.bool,
+  pressed: PropTypes.func,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  type: PropTypes.string,
+};
 
-input.propTypes = {
-    inputType: PropTypes.string,
-    changed: PropTypes.func.isRequired,
-    label: PropTypes.string,
-    error: PropTypes.string,
-    noTextError: PropTypes.bool,
-    pressed: PropTypes.func,
-}
+Input.defaultProps = {
+  inputType: '',
+  label: '',
+  error: '',
+  noTextError: false,
+  pressed: () => {},
+  value: '',
+  type: 'text',
+};
 
-export default input;
+export default Input;

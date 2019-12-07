@@ -7,24 +7,28 @@ import ThemeChanger from '../../components/ThemeChanger';
 
 import classes from './MainMenu.module.css';
 
-const mainMenu = props => {
-    return (
-        <ThemeContext.Consumer>
-            {
-                context => {
-                    return (
-                        <div className={context.currentTheme === 'dark' ? classes.wrapperDark : classes.wrapperLight}>
-                            <div className={classes.logo}>
-                                <Logo />
-                            </div>
-                            <GamesList />
-                            <ThemeChanger />
-                        </div>
-                    )
-                }
+const mainMenu = () => {
+  return (
+    <ThemeContext.Consumer>
+      {context => {
+        return (
+          <div
+            className={
+              context.currentTheme === 'dark'
+                ? classes.wrapperDark
+                : classes.wrapperLight
             }
-        </ThemeContext.Consumer>
-    );
-}
+          >
+            <div className={classes.logo}>
+              <Logo />
+            </div>
+            <GamesList />
+            <ThemeChanger />
+          </div>
+        );
+      }}
+    </ThemeContext.Consumer>
+  );
+};
 
 export default mainMenu;
