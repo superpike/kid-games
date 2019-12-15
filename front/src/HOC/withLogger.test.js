@@ -7,6 +7,9 @@ const TestComponent = () => <></>;
 const fakeLogger = jest.fn(data => data);
 
 describe('Testing withLogger', () => {
+  afterEach(() => {
+    fakeLogger.mockClear();
+  });
   test('should add log function', () => {
     const value = withLogger();
     expect(value).toBeFunction;
@@ -24,9 +27,9 @@ describe('Testing withLogger', () => {
     const { rerender, unmount } = render(<WrappedComponent />);
     expect(fakeLogger).toHaveBeenCalledTimes(1);
     rerender(<WrappedComponent qw="1" />);
-    expect(fakeLogger).toHaveBeenCalledTimes(4);
+    expect(fakeLogger).toHaveBeenCalledTimes(3);
     unmount(<WrappedComponent />);
-    expect(fakeLogger).toHaveBeenCalledTimes(5);
+    expect(fakeLogger).toHaveBeenCalledTimes(4);
     expect(fakeLogger).toHaveBeenNthCalledWith(
       1,
       'component mounted'
@@ -55,7 +58,7 @@ describe('Testing withLogger', () => {
       output: fakeLogger,
       lifecycles: ['didMount', 'didUnmount'],
     })(TestComponent);
-    const {} = render(<WrappedComponent />);
+    const { unmount } = render(<WrappedComponent />);
     expect(fakeLogger).toHaveBeenCalledTimes(1);
     unmount(<WrappedComponent />);
     expect(fakeLogger).toHaveBeenCalledTimes(2);
