@@ -74,7 +74,7 @@ describe('Testing withLogger', () => {
   test('should log props', () => {
     const WrappedComponent = withLogger({
       output: fakeLogger,
-      lifecicles: ['props'],
+      lifecycles: ['props'],
     })(TestComponent);
     const {} = render(<WrappedComponent q="1" w="erty" />);
     expect(fakeLogger).toHaveBeenCalledTimes(1);
@@ -86,9 +86,11 @@ describe('Testing withLogger', () => {
   test('should log props first', () => {
     const WrappedComponent = withLogger({
       output: fakeLogger,
-      lifecicles: ['props', 'didMount', 'shouldUpdate', 'didUnmount'],
+      lifecycles: ['props', 'didMount', 'shouldUpdate', 'didUnmount'],
     })(TestComponent);
-    const { rerender, unmount } = render(<WrappedComponent />);
+    const { rerender, unmount } = render(
+      <WrappedComponent q="1" w="erty" />
+    );
     expect(fakeLogger).toHaveBeenCalledTimes(2);
     rerender(<WrappedComponent qw="1" />);
     expect(fakeLogger).toHaveBeenCalledTimes(4);
