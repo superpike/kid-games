@@ -15,8 +15,8 @@ export const withLogger = (params = {}) => {
     lifecycles.findIndex(el => el === 'shouldUpdate') !== -1;
   const logDidUpdate =
     lifecycles.findIndex(el => el === 'didUpdate') !== -1;
-  const logDidUnmount =
-    lifecycles.findIndex(el => el === 'didUnmount') !== -1;
+  const logWillUnmount =
+    lifecycles.findIndex(el => el === 'willUnmount') !== -1;
   const log = data => {
     if (output) {
       return output(data);
@@ -49,7 +49,7 @@ export const withLogger = (params = {}) => {
         }
       }
       componentWillUnmount() {
-        if (logDidUnmount) {
+        if (logWillUnmount) {
           log('component will unmount');
         }
       }
