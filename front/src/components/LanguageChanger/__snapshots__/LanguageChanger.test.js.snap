@@ -1,3 +1,151 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Language changer should be default language 1`] = `<div />`;
+exports[`Language changer should be default language 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    <div
+      class="wrapper"
+    >
+      <label
+        class="label"
+        for="languageList"
+      >
+        language
+      </label>
+      <div
+        class="inputWrapper"
+      >
+        <input
+          class="InputElement"
+          data="[object Object],[object Object],[object Object]"
+          error=""
+          name="languageList"
+          selecttext=" "
+          value="English"
+        />
+        <div
+          class="icon"
+          role="button"
+          tabindex="0"
+        >
+          <i
+            class="fas fa-chevron-down"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Language changer should be list of languages 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    <div
+      class="wrapper"
+    >
+      <label
+        class="label"
+        for="languageList"
+      >
+        language
+      </label>
+      <div
+        class="inputWrapper"
+      >
+        <input
+          class="InputElement"
+          data="[object Object],[object Object],[object Object]"
+          error=""
+          name="languageList"
+          selecttext=" "
+          value="English"
+        />
+        <div
+          class="icon"
+          role="button"
+          tabindex="0"
+        >
+          <i
+            class="fas fa-chevron-down"
+          />
+        </div>
+        <div
+          class="listWrapper"
+        >
+          <div
+            class="itemHeader"
+          >
+             
+          </div>
+          <div
+            class="item"
+            role="button"
+            tabindex="0"
+          >
+            English
+          </div>
+          <div
+            class="item"
+            role="button"
+            tabindex="0"
+          >
+            Русский
+          </div>
+          <div
+            class="item"
+            role="button"
+            tabindex="0"
+          >
+            Česky
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Language changer should change language to ru 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    <div
+      class="wrapper"
+    >
+      <label
+        class="label"
+        for="languageList"
+      >
+        язык
+      </label>
+      <div
+        class="inputWrapper"
+      >
+        <input
+          class="InputElement"
+          data="[object Object],[object Object],[object Object]"
+          error=""
+          name="languageList"
+          selecttext=" "
+          value="Русский"
+        />
+        <div
+          class="icon"
+          role="button"
+          tabindex="0"
+        >
+          <i
+            class="fas fa-chevron-down"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
