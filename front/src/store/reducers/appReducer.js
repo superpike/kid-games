@@ -72,7 +72,7 @@ export const appReducer = (state = initialState, action) => {
     }
     case Constants.CHANGE_GAME: {
       const newGame = state.games.filter(
-        el => el.name === action.payload
+        el => el.id === action.payload
       )[0];
       state = {
         ...state,
