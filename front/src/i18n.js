@@ -18,7 +18,7 @@ i18n.use(initReactI18next).init({
       translations: cz,
     },
   },
-  fallbackLng: 'cz',
+  fallbackLng: 'en',
   debug: true,
 
   // have a common namespace used around the full app
