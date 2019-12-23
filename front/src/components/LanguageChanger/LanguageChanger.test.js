@@ -5,16 +5,15 @@ import { Logo } from '../Logo';
 import '@testing-library/jest-dom/extend-expect';
 
 describe('Language changer', () => {
-  const langueges = ['en', 'ru', 'cz'];
   test('should be default language', () => {
     const { container } = render(
-      <LanguageChanger langueges={langueges} defaultLanguage={'en'} />
+      <LanguageChanger defaultLanguage={'en'} />
     );
     expect(container).toMatchSnapshot();
   });
   test('should be list of languages', () => {
     const { container, getByText } = render(
-      <LanguageChanger langueges={langueges} defaultLanguage={'en'} />
+      <LanguageChanger defaultLanguage={'en'} />
     );
     const button = container.querySelector('.fa-chevron-down')
       .parentElement;
@@ -26,7 +25,7 @@ describe('Language changer', () => {
   });
   test('should change language to ru', () => {
     const { container, getByText } = render(
-      <LanguageChanger langueges={langueges} defaultLanguage={'en'} />
+      <LanguageChanger defaultLanguage={'en'} />
     );
     const { getByText: enGBT } = render(<Logo />);
     const button = container.querySelector('.fa-chevron-down')
