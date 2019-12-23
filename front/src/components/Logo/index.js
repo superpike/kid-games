@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import { withTheme } from '../../HOC/withTheme';
 
 import classes from './Logo.module.css';
 
-const Logo = ({ theme }) => {
+export const Logo = ({ theme }) => {
+  const { t } = useTranslation();
   return (
     <div
       className={
         theme === 'dark' ? classes.wrapperDark : classes.wrapperLight
       }
     >
-      Kid games
+      {t('logoName')}
     </div>
   );
 };
