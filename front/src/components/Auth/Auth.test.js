@@ -29,7 +29,7 @@ describe('Testing Auth component', () => {
       expect(fakeLogin).toHaveBeenCalledTimes(1);
     });
     test('should start register process', () => {
-      const { container } = render(
+      const { getByTestId } = render(
         <Auth login={fakeLogin} register={fakeRegister} />
       );
       const button = getByTestId('register');
@@ -37,7 +37,7 @@ describe('Testing Auth component', () => {
       expect(fakeRegister).toHaveBeenCalledTimes(1);
     });
     test('should start logout process', () => {
-      const { container } = render(
+      const { getByTestId } = render(
         <Auth username={username} logout={fakeLogout} />
       );
       const button = getByTestId('logout');
