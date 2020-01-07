@@ -36,14 +36,17 @@ Button.propTypes = {
     'Danger',
     'Auth Middle',
     'Danger Middle',
-  ]).isRequired,
+    '',
+  ]),
   disabled: PropTypes.bool,
   clicked: PropTypes.func.isRequired,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    .isRequired,
   testId: PropTypes.string,
 };
 
 Button.defaultProps = {
+  btnType: '',
   disabled: false,
   testId: '',
 };
