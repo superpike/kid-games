@@ -4,6 +4,7 @@ import {
   CHANGE_GAME,
   REGISTER,
   SHOW_PAGE,
+  LOGIN_OAUTH,
 } from '../constants';
 
 import instance from '../axios-docs';
@@ -44,5 +45,12 @@ export const logoutAction = (timeout = false) => {
   return {
     type: LOGOUT,
     payload: { timeout },
+  };
+};
+
+export const loginOAuth2Action = name => {
+  return {
+    type: LOGIN_OAUTH,
+    payload: { name },
   };
 };
