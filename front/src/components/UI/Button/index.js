@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import classes from './Button.module.css';
 
-const Button = ({ btnType, disabled, clicked, children }) => {
+const Button = ({ btnType, disabled, clicked, children, testId }) => {
   let assignedClasses = [];
   if (btnType) {
     assignedClasses = btnType.split(' ');
@@ -20,6 +20,7 @@ const Button = ({ btnType, disabled, clicked, children }) => {
         .join(' ')}
       onClick={clicked}
       type="button"
+      data-testid={testId}
     >
       {children}
     </button>
@@ -27,15 +28,24 @@ const Button = ({ btnType, disabled, clicked, children }) => {
 };
 
 Button.propTypes = {
-  btnType: PropTypes.oneOf(['Main Middle', 'Middle', 'Main'])
-    .isRequired,
+  btnType: PropTypes.oneOf([
+    'Main Middle',
+    'Middle',
+    'Main',
+    'Auth',
+    'Danger',
+    'Auth Middle',
+    'Danger Middle',
+  ]).isRequired,
   disabled: PropTypes.bool,
   clicked: PropTypes.func.isRequired,
   children: PropTypes.string.isRequired,
+  testId: PropTypes.string,
 };
 
 Button.defaultProps = {
   disabled: false,
+  testId: '',
 };
 
 export default Button;

@@ -4,6 +4,7 @@ exports[`Testing button should be all classes 1`] = `
 <div>
   <button
     class="Main Middle Button"
+    data-testid=""
     type="button"
   >
     Button
@@ -15,6 +16,7 @@ exports[`Testing button should be only Main 1`] = `
 <div>
   <button
     class="Main Button"
+    data-testid=""
     type="button"
   >
     Button
@@ -26,6 +28,7 @@ exports[`Testing button should be only Middle 1`] = `
 <div>
   <button
     class="Middle Button"
+    data-testid=""
     type="button"
   >
     Button
