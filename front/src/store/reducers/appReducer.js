@@ -5,6 +5,7 @@ const initialState = {
   isLoading: false,
   authError: '',
   isAuth: false,
+  username: '',
   games: [
     {
       name: 'Snakeee',
@@ -46,17 +47,60 @@ const initialState = {
       id: 4,
     },
   ],
+  activePage: '',
 };
 
 export const appReducer = (state = initialState, action) => {
   switch (action.type) {
-    case Constants.LOGIN: {
+    case Constants.LOGIN_PENDING: {
+      localStorage.removeItem('token');
+      state = {
+        ...state,
+        isAuth: false,
+        token: '',
+        authError: '',
+      };
+      break;
+    }
+    case Constants.LOGIN_FULFILLED: {
       localStorage.setItem('token', 'test_user');
       state = {
         ...state,
         isAuth: true,
         token: 'test_user',
+      };
+      break;
+    }
+    case Constants.LOGIN_REJECTED: {
+      state = {
+        ...state,
+        authError: 'Something goes wrong',
+      };
+      break;
+    }
+    case Constants.REGISTER_PENDING: {
+      localStorage.removeItem('token');
+      state = {
+        ...state,
+        isAuth: false,
+        token: '',
         authError: '',
+      };
+      break;
+    }
+    case Constants.REGISTER_FULFILLED: {
+      localStorage.setItem('token', 'test_user');
+      state = {
+        ...state,
+        isAuth: true,
+        token: 'test_user',
+      };
+      break;
+    }
+    case Constants.REGISTER_REJECTED: {
+      state = {
+        ...state,
+        authError: 'Something goes wrong',
       };
       break;
     }
@@ -80,6 +124,13 @@ export const appReducer = (state = initialState, action) => {
         isFavorite:
           state.favorites.filter(el => el.id === newGame.id).length >
           0,
+      };
+      break;
+    }
+    case Constants.SHOW_PAGE: {
+      state = {
+        ...state,
+        activePage: action.payload,
       };
       break;
     }

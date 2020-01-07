@@ -8,6 +8,8 @@ export const REGISTER_PENDING = 'REGISTER_PENDING';
 export const REGISTER_FULFILLED = 'REGISTER_FULFILLED';
 export const REGISTER_REJECTED = 'REGISTER_REJECTED';
 
+export const SHOW_PAGE = 'SHOW_PAGE';
+
 export const LOGOUT = 'LOGOUT';
 
 export const CHANGE_GAME = 'CHANGE_GAME';
