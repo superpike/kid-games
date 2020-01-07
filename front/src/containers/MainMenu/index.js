@@ -1,14 +1,34 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import ThemeContext from '../../context/themeContext';
 
 import Logo from '../../components/Logo';
 import GamesList from '../../components/GamesList';
 import ThemeChanger from '../../components/ThemeChanger';
 import LanguageChanger from '../../components/LanguageChanger';
+import Modal from '../../components/UI/Modal';
+import Auth from '../../components/Auth';
+import Login from '../Login';
+import Register from '../Register';
 
 import classes from './MainMenu.module.css';
 
-const mainMenu = () => {
+export const MainMenu = ({ activePage }) => {
+  let page = null;
+  if (activePage === 'login') {
+    page = (
+      <Modal>
+        <Login />
+      </Modal>
+    );
+  } else if (activePage === 'register') {
+    page = (
+      <Modal>
+        <Register />
+      </Modal>
+    );
+  }
   return (
     <ThemeContext.Consumer>
       {context => {
@@ -20,12 +40,14 @@ const mainMenu = () => {
                 : classes.wrapperLight
             }
           >
+            {page}
             <div className={classes.logo}>
               <Logo />
             </div>
             <LanguageChanger />
             <GamesList />
             <ThemeChanger />
+            <Auth />
           </div>
         );
       }}
@@ -33,4 +55,18 @@ const mainMenu = () => {
   );
 };
 
-export default mainMenu;
+MainMenu.propTypes = {
+  activePage: PropTypes.string,
+};
+
+MainMenu.defaultProps = {
+  activePage: '',
+};
+
+const mapStateToProps = store => {
+  return {
+    activePage: store.app.activePage,
+  };
+};
+
+export default connect(mapStateToProps)(MainMenu);
