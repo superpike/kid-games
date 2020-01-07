@@ -7,13 +7,13 @@ describe('Testing Register container', () => {
   const fakeRegister = jest.fn(data => data);
   const fakeCancel = jest.fn(data => data);
 
-  xtest('should match to snapshot', () => {
+  test('should match to snapshot', () => {
     const { container } = render(<Register />);
     expect(container).toMatchSnapshot();
   });
 
   describe('Buttons clicks', () => {
-    xtest('should register', () => {
+    test('should register', () => {
       const { getByTestId } = render(
         <Register register={fakeRegister} cancel={fakeCancel} />
       );
@@ -21,7 +21,7 @@ describe('Testing Register container', () => {
       button.click();
       expect(fakeRegister).toHaveBeenCalledTimes(1);
     });
-    xtest('should cancel registration', () => {
+    test('should cancel registration', () => {
       const { getByTestId } = render(
         <Register register={fakeRegister} cancel={fakeCancel} />
       );

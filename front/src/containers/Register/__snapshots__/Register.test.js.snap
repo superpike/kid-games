@@ -5,7 +5,68 @@ exports[`Testing Register container should match to snapshot 1`] = `
   <div
     class="wrapper"
   >
-    Login
+    <div
+      class="wrapper"
+    >
+      <label
+        class="label"
+        for="username"
+      >
+        username
+      </label>
+      <input
+        class="InputElement"
+        name="username"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="wrapper"
+    >
+      <label
+        class="label"
+        for="email"
+      >
+        email
+      </label>
+      <input
+        class="InputElement"
+        name="email"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="wrapper"
+    >
+      <label
+        class="label"
+        for="password"
+      >
+        password
+      </label>
+      <input
+        class="InputElement"
+        name="password"
+        type="password"
+        value=""
+      />
+    </div>
+    <button
+      class="Main Button"
+      data-testid="register"
+      type="button"
+    >
+      register
+    </button>
+    <button
+      class="Danger Button"
+      data-testid="cancel"
+      type="button"
+    >
+      cancel
+    </button>
   </div>
 </div>
 `;

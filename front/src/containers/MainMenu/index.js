@@ -18,13 +18,13 @@ export const MainMenu = ({ activePage }) => {
   let page = null;
   if (activePage === 'login') {
     page = (
-      <Modal>
+      <Modal classesNames='Center'>
         <Login />
       </Modal>
     );
   } else if (activePage === 'register') {
     page = (
-      <Modal>
+      <Modal classesNames='Center'>
         <Register />
       </Modal>
     );

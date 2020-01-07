@@ -11,5 +11,9 @@
   "language": "language",
   "login": "Login",
   "logout": "Logout",
-  "register": "Register"
+  "register": "Register",
+  "cancel": "Cancel",
+  "username": "Username",
+  "email": "Email",
+  "password": "Password"
 }

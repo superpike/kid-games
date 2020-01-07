@@ -11,5 +11,10 @@
   "language": "jazyk",
   "login": "Vstoupit",
   "logout": "Vystoupit",
-  "register": "Zaregistrovat se"
+  "register": "Zaregistrovat se",
+  "cancel": "Zrušení",
+  "username": "Uživatelské jméno",
+  "email": "Elektronická pošta",
+  "password": "Heslo"
+
 }
