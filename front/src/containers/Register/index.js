@@ -40,7 +40,11 @@ export const Register = ({ register, cancel }) => {
         value={password}
         changed={e => setpassword(e.target.value)}
       />
-      <Button btnType="Main" testId="register" clicked={register}>
+      <Button
+        btnType="Main"
+        testId="register"
+        clicked={() => register(username, email, password)}
+      >
         {t('register')}
       </Button>
       <Button btnType="Danger" testId="cancel" clicked={cancel}>
