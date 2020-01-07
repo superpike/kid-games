@@ -8,5 +8,8 @@
   "Mouse catcher": "Тренажер мыши",
   "The best ever": "Лучший выбор",
   "selecttext": "Выберите из списка:",
-  "language": "язык"
+  "language": "язык",
+  "login": "Войти",
+  "logout": "Выйти",
+  "register": "Зарегистрироваться"
 }

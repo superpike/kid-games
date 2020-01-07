@@ -8,5 +8,8 @@
   "Mouse catcher": "Mouse catcher",
   "The best ever": "The best ever",
   "selecttext": "Select from the list:",
-  "language": "language"
+  "language": "language",
+  "login": "Login",
+  "logout": "Logout",
+  "register": "Register"
 }

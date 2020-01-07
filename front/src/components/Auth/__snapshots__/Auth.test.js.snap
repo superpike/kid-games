@@ -5,7 +5,16 @@ exports[`Testing Auth component Is matched to snapshots should match to logged s
   <div
     class="wrapper"
   >
-    Auth
+    <div>
+      test user
+    </div>
+    <button
+      class="Danger Button"
+      data-testid="logout"
+      type="button"
+    >
+      logout
+    </button>
   </div>
 </div>
 `;
@@ -15,7 +24,20 @@ exports[`Testing Auth component Is matched to snapshots should match to unlogged
   <div
     class="wrapper"
   >
-    Auth
+    <button
+      class="Auth Button"
+      data-testid="register"
+      type="button"
+    >
+      register
+    </button>
+    <button
+      class="Auth Button"
+      data-testid="login"
+      type="button"
+    >
+      login
+    </button>
   </div>
 </div>
 `;
