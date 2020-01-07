@@ -5,6 +5,8 @@ import '@testing-library/jest-dom/extend-expect';
 
 describe('Testing Login container', () => {
   const fakeLogin = jest.fn(data => data);
+  const fakeLoginWithGithub = jest.fn(data => data);
+  const fakeLoginWithFB = jest.fn(data => data);
   const fakeCancel = jest.fn(data => data);
 
   test('should match to snapshot', () => {
@@ -28,6 +30,30 @@ describe('Testing Login container', () => {
       const button = getByTestId('cancel');
       button.click();
       expect(fakeCancel).toHaveBeenCalledTimes(1);
+    });
+    test('should login with github', () => {
+      const { getByTestId } = render(
+        <Login
+          login={fakeLogin}
+          loginWithGithub={fakeLoginWithGithub}
+          cancel={fakeCancel}
+        />
+      );
+      const button = getByTestId('loginWithGithub');
+      button.click();
+      expect(fakeLoginWithGithub).toHaveBeenCalledTimes(1);
+    });
+    test('should login with FB', () => {
+      const { getByTestId } = render(
+        <Login
+          login={fakeLogin}
+          loginWithFB={fakeLoginWithFB}
+          cancel={fakeCancel}
+        />
+      );
+      const button = getByTestId('loginWithFB');
+      button.click();
+      expect(fakeLoginWithFB).toHaveBeenCalledTimes(1);
     });
   });
 });
