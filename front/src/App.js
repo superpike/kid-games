@@ -8,6 +8,7 @@ import { ThemeProvider } from './context/themeContext';
 import MainMenu from './containers/MainMenu';
 import Game from './containers/Game';
 import gameRender from './renders/gameRender';
+import './i18n';
 
 import './App.css';
 

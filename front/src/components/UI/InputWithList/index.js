@@ -76,7 +76,7 @@ class InputWithList extends Component {
         <div
           key={el.id}
           className={classes.item}
-          onClick={() => this.handleChooseItem(el.name)}
+          onClick={() => this.handleChooseItem(el.id)}
           onKeyPress={() => {}}
           role="button"
           tabIndex="0"
