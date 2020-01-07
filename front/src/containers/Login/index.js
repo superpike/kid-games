@@ -8,10 +8,16 @@ import Button from '../../components/UI/Button';
 import {
   loginAction,
   showPage,
+  loginOAuth2Action,
 } from '../../store/actions/appActions';
 import classes from './Login.module.css';
 
-export const Login = ({ login, cancel }) => {
+export const Login = ({
+  login,
+  cancel,
+  loginWithGithub,
+  loginWithFB,
+}) => {
   const { t } = useTranslation();
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
@@ -42,6 +48,17 @@ export const Login = ({ login, cancel }) => {
       <Button btnType="Danger" testId="cancel" clicked={cancel}>
         {t('cancel')}
       </Button>
+      <div className={classes.oauthButtons}>
+        <Button
+          testId="loginWithGithub"
+          clicked={() => loginWithGithub()}
+        >
+          <i className="fab fa-github"></i>
+        </Button>
+        <Button testId="loginWithFB" clicked={() => loginWithFB()}>
+          <i className="fab fa-facebook-square"></i>
+        </Button>
+      </div>
     </div>
   );
 };
@@ -49,11 +66,15 @@ export const Login = ({ login, cancel }) => {
 Login.propTypes = {
   login: PropTypes.func,
   cancel: PropTypes.func,
+  loginWithGithub: PropTypes.func,
+  loginWithFB: PropTypes.func,
 };
 
 Login.defaultProps = {
   login: () => {},
   cancel: () => {},
+  loginWithGithub: () => {},
+  loginWithFB: () => {},
 };
 
 const mapStateToProps = store => {
@@ -64,6 +85,8 @@ const mapDispatchToProps = dispatch => {
   return {
     login: (username, email, password) =>
       dispatch(loginAction(username, email, password)),
+    loginWithGithub: () => dispatch(loginOAuth2Action('github')),
+    loginWithFB: () => dispatch(loginOAuth2Action('FB')),
     cancel: () => dispatch(showPage('')),
   };
 };

@@ -51,6 +51,28 @@ exports[`Testing Login container should match to snapshot 1`] = `
     >
       cancel
     </button>
+    <div
+      class="oauthButtons"
+    >
+      <button
+        class="Button"
+        data-testid="loginWithGithub"
+        type="button"
+      >
+        <i
+          class="fab fa-github"
+        />
+      </button>
+      <button
+        class="Button"
+        data-testid="loginWithFB"
+        type="button"
+      >
+        <i
+          class="fab fa-facebook-square"
+        />
+      </button>
+    </div>
   </div>
 </div>
 `;
