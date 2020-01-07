@@ -4,6 +4,7 @@ import ThemeContext from '../../context/themeContext';
 import Logo from '../../components/Logo';
 import GamesList from '../../components/GamesList';
 import ThemeChanger from '../../components/ThemeChanger';
+import LanguageChanger from '../../components/LanguageChanger';
 
 import classes from './MainMenu.module.css';
 
@@ -22,6 +23,7 @@ const mainMenu = () => {
             <div className={classes.logo}>
               <Logo />
             </div>
+            <LanguageChanger />
             <GamesList />
             <ThemeChanger />
           </div>

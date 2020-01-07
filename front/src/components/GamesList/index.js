@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import InputWithList from '../UI/InputWithList';
 import { changeGame } from '../../store/actions/appActions';
@@ -13,16 +14,19 @@ export const GameList = ({
   isFavorite,
   dispatch,
 }) => {
+  const { t } = useTranslation();
   return (
     <div className={classes.wrapper}>
       <InputWithList
-        data={games}
-        label="games for you"
+        data={games.map(el => {
+          return { id: el.id, name: t(el.name) };
+        })}
+        label={t('games for you')}
         showField={false}
         changed={() => {}}
-        value={activeGame ? activeGame.name : ''}
-        choose={name => {
-          dispatch(changeGame(name));
+        value={activeGame ? t(activeGame.name) : ''}
+        choose={id => {
+          dispatch(changeGame(id));
         }}
         name="gamesList"
       />
