@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Auth component Is matched to snapshots should match to logged snapshot 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    Auth
+  </div>
+</div>
+`;
+
+exports[`Testing Auth component Is matched to snapshots should match to unlogged snapshot 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    Auth
+  </div>
+</div>
+`;
