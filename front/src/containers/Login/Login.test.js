@@ -7,13 +7,13 @@ describe('Testing Login container', () => {
   const fakeLogin = jest.fn(data => data);
   const fakeCancel = jest.fn(data => data);
 
-  xtest('should match to snapshot', () => {
+  test('should match to snapshot', () => {
     const { container } = render(<Login />);
     expect(container).toMatchSnapshot();
   });
 
   describe('Buttons clicks', () => {
-    xtest('should login', () => {
+    test('should login', () => {
       const { getByTestId } = render(
         <Login login={fakeLogin} cancel={fakeCancel} />
       );
@@ -21,7 +21,7 @@ describe('Testing Login container', () => {
       button.click();
       expect(fakeLogin).toHaveBeenCalledTimes(1);
     });
-    xtest('should cancel login', () => {
+    test('should cancel login', () => {
       const { getByTestId } = render(
         <Login login={fakeLogin} cancel={fakeCancel} />
       );
