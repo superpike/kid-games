@@ -3,16 +3,23 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useThemeValue } from '../../context/themeContext';
 
-import classes from './Game.module.css';
+import { createUseStyles } from 'react-jss';
+
+const useStyles = createUseStyles({
+  wrapper: {
+    marginTop: '5vh',
+    minHeight: '95vh',
+    backgroundColor: props =>
+      props.theme === 'dark' ? '#282c34' : '#a7b5d1',
+    color: props => (props.theme === 'dark' ? 'white' : 'black'),
+  },
+});
 
 const Game = ({ activeGame, showGame }) => {
   const theme = useThemeValue();
+  const classes = useStyles({ theme });
   return (
-    <div
-      className={
-        theme === 'dark' ? classes.wrapperDark : classes.wrapperLight
-      }
-    >
+    <div className={classes.wrapper}>
       {showGame(activeGame ? activeGame.name : '')}
     </div>
   );
