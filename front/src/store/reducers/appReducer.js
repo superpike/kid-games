@@ -110,6 +110,7 @@ export const appReducer = (state = initialState, action) => {
         ...state,
         isAuth: false,
         token: '',
+        username: '',
         authError: '',
       };
       break;
