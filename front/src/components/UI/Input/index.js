@@ -1,10 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import classes from './Input.module.css';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  position: relative;
+  margin: 20px;
+`;
+
+const InputElement = styled.input`
+  outline: none;
+  display: block;
+  border: ${props => (props.error ? '1px solid red' : 'none')};
+  border-radius: 3px;
+  padding: 5px;
+`;
+
+const Label = styled.label`
+  text-align: left;
+  margin-bottom: 10px;
+  display: block;
+  font-style: italic;
+  color: ${props => (props.error ? 'red' : 'white')};
+`;
+
+const Error = styled.div`
+  font-size: 12px;
+  color: red;
+  text-align: left;
+  margin: 5px;
+  position: absolute;
+  left: 0;
+  top: 90%;
+`;
 
 const Input = ({
-  inputType,
   changed,
   label,
   error,
@@ -14,48 +44,27 @@ const Input = ({
   value,
   type,
 }) => {
-  let assignedClasses = [];
-  if (inputType) {
-    assignedClasses = inputType
-      .split(' ')
-      .map(el => el + (error ? 'Error' : ''));
-  }
-
-  assignedClasses.push('InputElement');
-
   return (
-    <div className={classes[`wrapper${inputType}`]}>
+    <Wrapper>
       {label ? (
-        <label
-          className={
-            error && !noTextError ? classes.labelError : classes.label
-          }
-          htmlFor={name}
-        >
+        <Label error={error && !noTextError} htmlFor={name}>
           {label}
-        </label>
+        </Label>
       ) : null}
-      <input
-        className={assignedClasses
-          .map(el => {
-            return classes[el];
-          })
-          .join(' ')}
+      <InputElement
         onChange={changed}
         onKeyPress={pressed}
         name={name}
         value={value}
         type={type}
+        error={error && !noTextError}
       />
-      {error && !noTextError ? (
-        <div className={classes.error}>{error}</div>
-      ) : null}
-    </div>
+      {error && !noTextError ? <Error>{error}</Error> : null}
+    </Wrapper>
   );
 };
 
 Input.propTypes = {
-  inputType: PropTypes.string,
   changed: PropTypes.func.isRequired,
   label: PropTypes.string,
   error: PropTypes.string,
@@ -67,7 +76,6 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  inputType: '',
   label: '',
   error: '',
   noTextError: false,
