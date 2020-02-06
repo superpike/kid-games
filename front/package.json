@@ -67,7 +67,8 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "husky": "^3.1.0",
     "jest": "^24.9.0",
-    "prettier": "^1.19.1",
-    "lint-staged": "^9.4.3"
+    "jest-extended": "^0.11.2",
+    "lint-staged": "^9.4.3",
+    "prettier": "^1.19.1"
   }
 }
