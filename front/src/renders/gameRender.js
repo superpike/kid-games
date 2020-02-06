@@ -1,13 +1,16 @@
-import React from 'react';
-
-import Snakeee from '../games/Snakeee';
+import React, { lazy, Suspense } from 'react';
 
 const gameRender = name => {
   if (!name) {
     return <div>Landing page is comming!</div>;
   }
   if (name === 'Snakeee') {
-    return <Snakeee />;
+    const Snakeee = lazy(() => import('../games/Snakeee'));
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Snakeee />
+      </Suspense>
+    );
   }
   return <div>No such game jet!</div>;
 };
