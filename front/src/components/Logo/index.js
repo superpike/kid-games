@@ -4,19 +4,17 @@ import { useTranslation } from 'react-i18next';
 
 import { withTheme } from '../../HOC/withTheme';
 
-import classes from './Logo.module.css';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  color: ${props => (props.theme === 'dark' ? '#07071f' : '#1c1c88')};
+`;
 
 export const Logo = ({ theme }) => {
   const { t } = useTranslation();
-  return (
-    <div
-      className={
-        theme === 'dark' ? classes.wrapperDark : classes.wrapperLight
-      }
-    >
-      {t('logoName')}
-    </div>
-  );
+  return <Wrapper theme={theme}>{t('logoName')}</Wrapper>;
 };
 
 Logo.propTypes = {
